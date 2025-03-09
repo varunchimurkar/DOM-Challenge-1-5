@@ -90,5 +90,4 @@
 - Clicking an indicator should navigate directly to the corresponding image.
 =======
 # DOM-Challenge-1-5
-Javascript Document Object Model Challenges
 >>>>>>> f79262af569c5faf69e94f88b86b7bcd70297a4d
