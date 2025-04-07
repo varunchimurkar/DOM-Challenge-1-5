@@ -75,6 +75,7 @@ h1 {
   width: 18px;
   height: 18px;
   cursor: pointer;
+ 
 }
 
 .task-item.completed .task-text {
