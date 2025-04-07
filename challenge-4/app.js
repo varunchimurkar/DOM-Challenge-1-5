@@ -5,7 +5,6 @@
 const addbtn = document.getElementById('addButton')
 const tasklist = document.getElementById('taskList')
 const taskinput = document.getElementById('taskInput')
-
 const Notask = document.getElementById('Notask')
 
 let totaltasks = document.getElementById('totalTasks')
@@ -19,11 +18,9 @@ addbtn.addEventListener('click', () => {
    // Check if the value is not empty
    if (taskinput.value !== '') {
 
-
       Notask.style.display = 'none'  // Hide the "No tasks yet" message if a task is added
 
       // const value = taskinput.value
-
 
       const li = document.createElement('li')
       // li.innerHTML = value
@@ -58,14 +55,13 @@ addbtn.addEventListener('click', () => {
       btn.addEventListener('click', () => {
          li.remove()
          total = total - 1
-
          totaltasks.innerHTML = `Total tasks:  ${total}`
 
          if (total === 0) {
             Notask.style.display = ''
          }
 
-         if(checkbox.checked){
+         if (checkbox.checked) {
             li.classList.remove('completed');
             complete = complete - 1
             completetasks.innerHTML = `Completed: ${complete}`
@@ -85,14 +81,9 @@ addbtn.addEventListener('click', () => {
 
             li.classList.remove('completed');
             complete = complete - 1
-            
             completetasks.innerHTML = `Completed: ${complete}`
 
          }
       })
-
-
    }
-
-
 }) 
