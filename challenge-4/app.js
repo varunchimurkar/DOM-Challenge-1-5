@@ -82,7 +82,6 @@ addbtn.addEventListener('click', () => {
             li.classList.remove('completed');
             complete = complete - 1
             completetasks.innerHTML = `Completed: ${complete}`
-
          }
       })
    }
