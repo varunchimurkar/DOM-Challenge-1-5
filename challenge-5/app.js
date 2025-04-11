@@ -35,7 +35,7 @@ let currentindex = 0
 
 let activeindicator = null
 
-let autoplayinter
+let autoplayinter // This variable will store the timer ID when the autoplay starts, value is undefined
 
 
 
@@ -70,6 +70,7 @@ function indicators() {
     }
 
     div.addEventListener('click', () => {
+      
       if (activeindicator) {
         activeindicator.classList.remove('active')
       }
@@ -78,7 +79,6 @@ function indicators() {
       activeindicator = div;
       currentindex = index;
       showimg();
-
     })
   })
 }
@@ -88,8 +88,10 @@ indicators()
 function update() {
 
   if (activeindicator) {
-    activeindicator.classList.remove('active')
-  }
+    
+     activeindicator.classList.remove('active')
+    
+}
   const newindicator = nav.children[currentindex]
   newindicator.classList.add('active')
   activeindicator = newindicator
@@ -101,7 +103,7 @@ function autoPlay() {
 
   timerdisplay.textContent = `Next Slides in ${count}s`
 
-  autoplayinter = setInterval(() => {
+  autoplayinter = setInterval(() => { //store id in autoplayinter 
 
     count = count - 1
 
@@ -124,27 +126,26 @@ function autoPlay() {
 
   }, 2000)
 
-  autoplaybtn.textContent = `Stop Auto Play`
+    autoplaybtn.textContent = `Stop Auto Play`
 }
 
 function stopautoplay() {
+ 
   clearInterval(autoplayinter)
   autoplaybtn.textContent = `Start Auto Play`
+  timerdisplay.textContent = ''
+  autoplayinter = null //autoplay is OFF
+
 }
 
 autoplaybtn.addEventListener('click', () => {
-
-  if (autoplayinter) {
-
-    stopautoplay()
-    timerdisplay.textContent = ''
-    autoplayinter = null
-
-  } else {
-    autoPlay()
-  }
+    
+     if (autoplayinter) {
+        stopautoplay()
+  }  else {
+        autoPlay()
+   }
 })
-
 
 btnprev.addEventListener('click', () => {
   currentindex = (currentindex - 1 + images.length) % images.length
@@ -160,12 +161,10 @@ btnnext.addEventListener('click', () => {
 })
 
 
+// Notes :- nav.children[currentindex]
 
-//nav.children[currentindex]
+// nav = container of the dots
 
-/* 
-nav = container of the dots
+// nav.children = list of all the dot elements
 
-nav.children = list of all the dot elements
-
-nav.children[index] = the dot for image at index */
+// nav.children[index] = the dot for image at index
